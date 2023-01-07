@@ -1,0 +1,408 @@
+body {
+  padding: 0;
+  background: #fff;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.showCommand {
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  width: 46px;
+  height: 46px;
+}
+.overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.overlay-content {
+  position: relative;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.overlay-content h5 {
+  color: #fff;
+  z-index: 2;
+  font-size: 15px;
+}
+.overlay li {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  color: hsla(0, 0%, 100%, 0.7);
+  list-style: square;
+  display: block;
+  transition: 0.3s;
+}
+.overlay li code {
+  color: #818181;
+}
+.overlay li:focus,
+.overlay li:hover {
+  color: #f1f1f1;
+}
+.overlay .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 40px;
+  color: #fff;
+}
+@media screen and (min-width: 400px) {
+  .overlay li {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 550px) {
+  .overlay li {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 650px) {
+  .overlay li {
+    padding: 12px;
+  }
+  .overlay-content h5 {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .overlay li {
+    padding: 15px;
+  }
+  .overlay-content h5 {
+    font-size: 20px;
+  }
+}
+#AppHeader {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+#AppHeader img {
+  width: 268px;
+  height: 89px;
+}
+.userDetails img {
+  display: -webkit-flex;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 50%;
+}
+img.image-visible {
+  display: block;
+}
+img.image-hidden {
+  display: none;
+}
+.userDetails {
+  padding: 34px 0 0;
+}
+.userInfo {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+.userInfo h3 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 200;
+  font-size: 25px;
+  padding: 10px 0 0;
+}
+.time-loader {
+  margin: 15px 0 0;
+}
+.image-loader,
+.time-loader {
+  border: 6px solid #f3f3f3;
+  border-top-color: #181d32;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+.image-loader {
+  margin: 15px 0 0 130px;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+#time {
+  padding-top: 10px;
+}
+#crntTime {
+  font-size: 24px;
+}
+#crntDate,
+#crntTime {
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+}
+#crntDate {
+  padding: 2px 0 0;
+  font-size: 17px;
+}
+ul {
+  margin: 60px 0 0;
+}
+.time-container {
+  margin: auto;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: #fff;
+}
+.time-container,
+div.weather-container {
+  display: -webkit-flex;
+  width: 280px;
+  height: 80px;
+  background-color: #333551;
+  border-radius: 10px;
+  display: flex;
+}
+div.weather-container {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin: 36px auto;
+}
+div .widget-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  padding: 0;
+}
+div.weather-icon > img {
+  color: #fff;
+  width: 40px;
+  height: auto;
+}
+div.temperature-value > p {
+  font-size: 26px;
+  color: #fff;
+  padding: 1px 0 0;
+}
+div.temperature-value > p,
+div.weather-container > div.location {
+  font-family: "Ubuntu", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
+div.weather-container > div.location {
+  color: #a2a2a2;
+  text-align: center;
+}
+.location p {
+  font-size: 16px;
+  margin-top: -5px;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #181d32;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  transition: all 0.5s ease;
+}
+#check {
+  display: none;
+}
+#cancel,
+#open {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 6px;
+}
+#open {
+  font-size: 28px;
+  color: #181d32;
+  padding: 6px 13px;
+  margin: 5.5px 0;
+  transition: all 0.5s;
+}
+#cancel {
+  z-index: 2000;
+  color: #fff;
+  padding: 10px 15px;
+  left: -260px;
+  display: block;
+  transition: all 0.5s ease;
+}
+#check:checked ~ .sidebar {
+  left: 0;
+}
+#check:checked ~ #cancel {
+  display: none;
+}
+#check:checked ~ label #open {
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ label #cancel {
+  left: 260px;
+}
+#mode {
+  color: #fff;
+}
+@media screen and (max-width: 750px) {
+  .sidebar {
+    left: -300px;
+  }
+}
+.copyright {
+  color: #a2a2a2;
+  font-family: "Ubuntu", sans-serif;
+}
+.copyright > p {
+  text-align: center;
+  margin-top: 90px;
+}
+.copyright p a {
+  color: #a2a2a2;
+  text-decoration: none;
+  transition: 0.4s;
+}
+.copyright p a:hover {
+  color: #fff;
+}
+@media screen and (max-height: 670px) {
+  .copyright > p {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-height: 645px) {
+  .copyright > p {
+    margin-top: 30px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.parent {
+  height: 640px;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.mic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+  border: none;
+  background: #181d32;
+}
+.mic:hover:focus {
+  width: 150px;
+  height: 150px;
+  background: #2b3350;
+}
+.micIcon {
+  color: #fff;
+}
+@media screen and (min-width: 750px) {
+  .mic {
+    margin: 0 0 0 200px;
+  }
+}
+.LoginContainer {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin: 210px 0 0;
+}
+img {
+  width: 450px;
+  height: auto;
+}
+.SignIn {
+  background-color: #000;
+  color: #fff;
+  padding: 14px 19px;
+  font-size: 1.5rem;
+  border-radius: 7px;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 450px) {
+  img {
+    width: 300px;
+  }
+  .SignIn {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
+#main {
+  float: right;
+  margin: 2px 10px 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+button.toggler {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+div#sourceCode {
+  margin: 11px 18px;
+}
+/*# sourceMappingURL=main.68671082.chunk.css.map */
